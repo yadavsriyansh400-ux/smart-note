@@ -1,0 +1,207 @@
+/* Global */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: #e2e8f0;
+}
+
+/* App container */
+.app {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Title */
+.title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* Input section */
+.input-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.input-box input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.input-box input::placeholder {
+  color: #94a3b8;
+}
+
+.input-box button {
+  background: #3b82f6;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-box button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Note card */
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 20px;
+  border-radius: 18px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Modal overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 6, 23, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal content (floating island) */
+.modal-content {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 30px;
+  border-radius: 22px;
+  width: 400px;
+  position: relative;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.3s ease;
+}
+
+/* Modal title */
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+/* Input inside modal (edit mode) */
+.modal-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  background: #0f172a;
+  color: white;
+  font-size: 1rem;
+}
+
+/* Buttons inside modal */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Update button */
+.update {
+  flex: 1;
+  background: #22c55e;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.update:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+/* Delete button */
+.delete {
+  flex: 1;
+  background: #ef4444;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.close:hover {
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
