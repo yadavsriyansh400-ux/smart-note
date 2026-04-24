@@ -7,7 +7,6 @@ const app = express();
 app.use(cors({
   origin: "https://smart-note-fawn.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
 }));
 
 app.use(express.json());
