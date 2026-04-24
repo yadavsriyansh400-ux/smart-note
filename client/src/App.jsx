@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");
@@ -14,7 +16,7 @@ function App() {
   }, []);
 
   const fetchNotes = () => {
-    fetch("http://localhost:5000/api/notes")
+    fetch(`${API_URL}/api/notes`)
       .then((res) => res.json())
       .then((data) => setNotes(data))
       .catch((err) => console.error(err));
@@ -24,7 +26,7 @@ function App() {
   const addNote = () => {
     if (!title.trim()) return;
 
-    fetch("http://localhost:5000/api/notes", {
+    fetch(`${API_URL}/api/notes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +42,7 @@ function App() {
 
   // Delete note
   const deleteNote = (id) => {
-    fetch(`http://localhost:5000/api/notes/${id}`, {
+    fetch(`${API_URL}/api/notes/${id}`, {
       method: "DELETE",
     }).then(() => fetchNotes());
   };
@@ -77,12 +79,11 @@ function App() {
         ))}
       </div>
 
-      {/* Modal (Island View) */}
+      {/* Modal */}
       {selectedNote && (
         <div className="modal">
           <div className="modal-content">
 
-            {/* Content */}
             {isEditing ? (
               <input
                 className="modal-input"
@@ -93,13 +94,12 @@ function App() {
               <h2>{selectedNote.title}</h2>
             )}
 
-            {/* Actions */}
             <div className="modal-actions">
               {isEditing ? (
                 <button
                   className="update"
                   onClick={() => {
-                    fetch(`http://localhost:5000/api/notes/${selectedNote._id}`, {
+                    fetch(`${API_URL}/api/notes/${selectedNote._id}`, {
                       method: "PUT",
                       headers: {
                         "Content-Type": "application/json",
@@ -139,7 +139,6 @@ function App() {
               </button>
             </div>
 
-            {/* Close */}
             <span
               className="close"
               onClick={() => setSelectedNote(null)}
